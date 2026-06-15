@@ -1,0 +1,31 @@
+# --- Build output ---
+target/
+build/
+*.jar
+*.war
+!**/src/**/*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# --- IDE / editor ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+*.swp
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Logs & temp ---
+*.log
+logs/
+*.tmp
+
+# --- Local env / secrets ---
+.env
+*.local

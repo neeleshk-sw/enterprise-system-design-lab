@@ -1,0 +1,19 @@
+| Section                  | Purpose                            | Coverage                                                            |
+| ------------------------ | ---------------------------------- | ------------------------------------------------------------------- |
+| 00-template-service      | Standard starter for all examples  | Spring Boot, PostgreSQL, Flyway, Swagger, Logging, Testing, Docker  |
+| 01-foundation            | Core application architecture      | CRUD, Layered Architecture, Clean Architecture, REST APIs           |
+| 02-database-patterns     | Relational database mastery        | PostgreSQL, Transactions, Locking, Partitioning, Query Optimization |
+| 03-microservices         | Service decomposition              | Service Boundaries, Config Server, Discovery, Gateway, Feign        |
+| 04-rabbitmq              | Message queue and Pub/Sub patterns | Queues, Exchanges, Routing, DLQ, Delayed Processing, Pub/Sub        |
+| 05-kafka                 | Event-driven architecture          | Topics, Partitions, Consumer Groups, DLT, Streams, Event Sourcing   |
+| 06-redis                 | Caching and performance            | Cache Strategies, Distributed Locks, Rate Limiting, Sessions        |
+| 07-nosql                 | Polyglot persistence               | MongoDB, Cassandra, DynamoDB, Document Models, Time-Series Data     |
+| 08-search                | Search architecture                | OpenSearch, Indexing, Full Text Search, Autocomplete, Ranking       |
+| 09-resilience            | Fault tolerance                    | Retry, Circuit Breaker, Bulkhead, Timeout, Fallback                 |
+| 10-observability         | Monitoring and diagnostics         | Logging, Metrics, Tracing, Dashboards, Alerting                     |
+| 11-security              | Enterprise security                | JWT, OAuth2, RBAC, Secret Management, API Security                  |
+| 12-docker                | Containerization                   | Dockerfiles, Compose, Networking, Image Optimization                |
+| 13-kubernetes            | Container orchestration            | Deployments, Services, Ingress, HPA, Helm                           |
+| 14-cloud-native-aws      | AWS-native implementation          | ECS, EKS, RDS, ElastiCache, SQS, SNS, MSK, CloudWatch               |
+| 15-architecture-patterns | Advanced enterprise patterns       | Saga, CQRS, Event Sourcing, Outbox, DDD, Multi-Tenancy              |
+| 16-production-ready      | Real-world deployment readiness    | CI/CD, DR, Scaling, Performance, Chaos Engineering                  |

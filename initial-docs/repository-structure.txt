@@ -1,0 +1,169 @@
+enterprise-system-design-lab/
+│
+├── README.md
+├── CONTRIBUTING.md
+├── docs/
+│   ├── architecture/
+│   ├── diagrams/
+│   ├── adrs/
+│   ├── runbooks/
+│   └── articles/
+│
+├── 00-template-service/
+│   ├── customer-service/
+│   ├── common-library/
+│   ├── docker/
+│   └── README.md
+│
+├── 01-foundation/
+│   ├── basic-crud/
+│   ├── layered-architecture/
+│   ├── clean-architecture/
+│   ├── multi-module/
+│   └── rest-api-best-practices/
+│
+├── 02-database-patterns/
+│   ├── postgres-indexing/
+│   ├── postgres-partitioning/
+│   ├── transaction-management/
+│   ├── optimistic-locking/
+│   ├── pessimistic-locking/
+│   ├── read-replica-pattern/
+│   └── database-migration-flyway/
+│
+├── 03-microservices/
+│   ├── service-splitting/
+│   ├── synchronous-communication/
+│   ├── config-server/
+│   ├── service-discovery/
+│   ├── api-gateway/
+│   ├── openfeign/
+│   └── distributed-configuration/
+│
+├── 04-rabbitmq/
+│   ├── basic-queue/
+│   ├── work-queue/
+│   ├── direct-exchange/
+│   ├── topic-exchange/
+│   ├── fanout-pubsub/
+│   ├── dead-letter-queue/
+│   ├── delayed-processing/
+│   └── request-reply-pattern/
+│
+├── 05-kafka/
+│   ├── producer-consumer/
+│   ├── consumer-groups/
+│   ├── partitioning/
+│   ├── retry-topics/
+│   ├── dead-letter-topic/
+│   ├── idempotent-consumers/
+│   ├── outbox-pattern/
+│   ├── kafka-streams/
+│   ├── event-sourcing/
+│   └── transactional-messaging/
+│
+├── 06-redis/
+│   ├── cache-aside/
+│   ├── write-through/
+│   ├── write-behind/
+│   ├── distributed-lock/
+│   ├── session-management/
+│   ├── rate-limiting/
+│   ├── inventory-cache/
+│   └── pubsub-events/
+│
+├── 07-nosql/
+│   ├── mongodb-product-catalog/
+│   ├── mongodb-reviews/
+│   ├── cassandra-event-store/
+│   ├── cassandra-time-series/
+│   ├── dynamodb-order-store/
+│   ├── polyglot-persistence/
+│   └── schema-design-comparison/
+│
+├── 08-search/
+│   ├── opensearch-basics/
+│   ├── indexing-pipeline/
+│   ├── product-search/
+│   ├── autocomplete/
+│   ├── faceted-search/
+│   ├── search-ranking/
+│   └── search-with-kafka/
+│
+├── 09-resilience/
+│   ├── retry-pattern/
+│   ├── circuit-breaker/
+│   ├── bulkhead/
+│   ├── timeout-management/
+│   ├── fallback-pattern/
+│   ├── rate-limiter/
+│   └── resilience-combination/
+│
+├── 10-observability/
+│   ├── centralized-logging/
+│   ├── distributed-tracing/
+│   ├── metrics-collection/
+│   ├── prometheus/
+│   ├── grafana/
+│   ├── alerting/
+│   └── complete-observability-stack/
+│
+├── 11-security/
+│   ├── jwt-authentication/
+│   ├── oauth2/
+│   ├── keycloak-integration/
+│   ├── role-based-access/
+│   ├── api-security/
+│   ├── secret-management/
+│   └── security-hardening/
+│
+├── 12-docker/
+│   ├── service-containerization/
+│   ├── multi-stage-build/
+│   ├── docker-compose/
+│   ├── networking/
+│   ├── volumes/
+│   └── production-images/
+│
+├── 13-kubernetes/
+│   ├── deployments/
+│   ├── services/
+│   ├── ingress/
+│   ├── configmaps/
+│   ├── secrets/
+│   ├── autoscaling/
+│   ├── statefulsets/
+│   └── helm/
+│
+├── 14-cloud-native-aws/
+│   ├── ecs-deployment/
+│   ├── eks-deployment/
+│   ├── rds-integration/
+│   ├── elasticache/
+│   ├── sqs-sns/
+│   ├── msk-kafka/
+│   ├── cloudwatch/
+│   ├── xray-tracing/
+│   ├── s3-document-storage/
+│   └── serverless-integration/
+│
+├── 15-architecture-patterns/
+│   ├── saga-orchestration/
+│   ├── saga-choreography/
+│   ├── cqrs/
+│   ├── event-sourcing/
+│   ├── outbox-pattern/
+│   ├── strangler-pattern/
+│   ├── bff-pattern/
+│   ├── multi-tenancy/
+│   ├── hexagonal-architecture/
+│   └── domain-driven-design/
+│
+└── 16-production-ready/
+    ├── complete-platform/
+    ├── performance-testing/
+    ├── chaos-engineering/
+    ├── deployment-pipeline/
+    ├── disaster-recovery/
+    ├── scaling-strategies/
+    └── production-checklist/
