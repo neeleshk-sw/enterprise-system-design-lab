@@ -1,5 +1,7 @@
 # Enterprise System Design Lab
 
+[![CI](https://github.com/neeleshk-sw/enterprise-system-design-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/neeleshk-sw/enterprise-system-design-lab/actions/workflows/ci.yml)
+
 A comprehensive, hands-on reference implementation of modern enterprise application architecture — organized as many **independent, self-contained projects** grouped into 17 numbered sections (`00` → `16`). It is intended as a long-term architect reference, an interview-preparation resource, and a practical technology laboratory.
 
 The shared business domain across all projects is a **Supply Chain & Order Fulfillment Platform** (Customer, Product, Inventory, Cart, Order, Payment, Shipment, Notification, Search, Analytics). Each project borrows whichever services make its pattern realistic — projects never depend on each other.
