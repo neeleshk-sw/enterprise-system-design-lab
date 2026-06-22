@@ -1,0 +1,6 @@
+# Active inside docker-compose (SPRING_PROFILES_ACTIVE=docker).
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://postgres:5432/basiccrud}
+    username: ${DB_USERNAME:basiccrud}
+    password: ${DB_PASSWORD:basiccrud}

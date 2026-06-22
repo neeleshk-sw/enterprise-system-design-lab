@@ -20,6 +20,7 @@ jobs:
         # Each independent Maven project. Add new sections here as they are built.
         project:
           - 00-template-service
+          - 01-foundation/basic-crud
     steps:
       - name: Checkout
         uses: actions/checkout@v4
