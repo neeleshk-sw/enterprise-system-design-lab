@@ -1,0 +1,36 @@
+# Local end-to-end stack: PostgreSQL + product-service.
+# Usage: docker compose up --build
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: layered
+      POSTGRES_USER: layered
+      POSTGRES_PASSWORD: layered
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U layered -d layered"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  product-service:
+    build:
+      context: .
+      dockerfile: product-service/Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_URL: jdbc:postgresql://postgres:5432/layered
+      DB_USERNAME: layered
+      DB_PASSWORD: layered
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres-data:

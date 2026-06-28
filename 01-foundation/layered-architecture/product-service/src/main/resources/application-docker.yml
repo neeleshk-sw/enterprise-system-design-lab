@@ -1,0 +1,7 @@
+# Active inside docker-compose (SPRING_PROFILES_ACTIVE=docker).
+# The service reaches PostgreSQL by its compose service name; env vars still win.
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://postgres:5432/layered}
+    username: ${DB_USERNAME:layered}
+    password: ${DB_PASSWORD:layered}

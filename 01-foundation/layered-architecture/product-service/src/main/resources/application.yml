@@ -1,0 +1,51 @@
+# Configuration for product-service (layered-architecture).
+# Base defaults target localhost (local runs); docker overrides live in application-docker.yml.
+# NOTE: schema is owned by Flyway; Hibernate only validates (no auto-DDL).
+spring:
+  application:
+    name: product-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/layered}
+    username: ${DB_USERNAME:layered}
+    password: ${DB_PASSWORD:layered}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        type:
+          # Map Instant to plain TIMESTAMP (UTC-normalized) so schema validation
+          # is deterministic against the Flyway-created columns.
+          preferred_instant_jdbc_type: TIMESTAMP
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+  info:
+    env:
+      enabled: true
+
+# Surfaced by /actuator/info (version is filtered in from the Maven build)
+info:
+  app:
+    name: ${spring.application.name}
+    description: Enterprise System Design Lab — 01-foundation layered architecture (Product/Category)
+    version: @project.version@
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

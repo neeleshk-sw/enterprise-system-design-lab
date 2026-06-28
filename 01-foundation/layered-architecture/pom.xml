@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Inherit dependency & plugin management from Spring Boot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.15</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.enterprise</groupId>
+    <artifactId>layered-architecture-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>layered-architecture</name>
+    <description>Enterprise System Design Lab — 01-foundation layered architecture (Product/Category)</description>
+
+    <modules>
+        <module>common-library</module>
+        <module>product-service</module>
+    </modules>
+
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springdoc.version>2.8.9</springdoc.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Internal shared module, version-aligned with the build -->
+            <dependency>
+                <groupId>com.enterprise</groupId>
+                <artifactId>common-library</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- OpenAPI / Swagger UI (not managed by the Spring Boot BOM) -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
