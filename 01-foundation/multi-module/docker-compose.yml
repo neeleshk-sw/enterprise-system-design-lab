@@ -1,0 +1,36 @@
+# Local end-to-end stack: PostgreSQL + the multi-module app.
+# Usage: docker compose up --build
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: multimodule
+      POSTGRES_USER: multimodule
+      POSTGRES_PASSWORD: multimodule
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U multimodule -d multimodule"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_URL: jdbc:postgresql://postgres:5432/multimodule
+      DB_USERNAME: multimodule
+      DB_PASSWORD: multimodule
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres-data:

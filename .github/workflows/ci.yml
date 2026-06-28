@@ -23,6 +23,7 @@ jobs:
           - 01-foundation/basic-crud
           - 01-foundation/layered-architecture
           - 01-foundation/clean-architecture
+          - 01-foundation/multi-module
     steps:
       - name: Checkout
         uses: actions/checkout@v4
