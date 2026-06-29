@@ -6,6 +6,29 @@ The **baseline template** every other project in the Enterprise System Design La
 
 ---
 
+## Modules & Layout
+
+A Maven **multi-module** build — two modules plus supporting files:
+
+| Path | What it is |
+|---|---|
+| [`common-library/`](common-library) | **Reusable shared jar** (`com.enterprise.common`) — the cross-cutting foundation every derived project inherits *unchanged*: the `ApiResponse<T>` success envelope, the unified `ErrorResponse`, the `BaseException` hierarchy (`ResourceNotFoundException` / `BusinessException` / `ValidationException`) + `GlobalExceptionHandler`, `AuditEntity` (JPA auditing base), `Constants`, and utilities (`TraceIdGenerator`). No `@SpringBootApplication` — a plain library jar. |
+| [`customer-service/`](customer-service) | **The runnable Spring Boot application** (`com.enterprise.customer`) — implements the Customer domain end-to-end (`controller` → `service` + `impl` + `mapper` → `repository` → `entity`), plus `config` (request-logging filter, OpenAPI, JPA auditing), Flyway migrations, and the full test suite. Depends on `common-library`; the only executable jar. |
+| `docker-compose.yml` | Local end-to-end stack: PostgreSQL + the service. |
+| `scripts/` | Turnkey helpers: `build.sh`, `run-local.sh`, `docker-up.sh`, `docker-down.sh`. |
+| `docs/` | [`plan.md`](docs/plan.md) (build roadmap), [`architecture.md`](docs/architecture.md), [`api-spec.md`](docs/api-spec.md), [`setup-guide.md`](docs/setup-guide.md). |
+
+```
+00-template-service/
+├── pom.xml                # parent / aggregator
+├── common-library/        # shared jar  (com.enterprise.common)
+└── customer-service/      # Spring Boot app (com.enterprise.customer) → depends on common-library
+```
+
+Dependency direction is one-way: `customer-service` → `common-library`.
+
+---
+
 ## Architectural Objective
 
 Establish a **clean layered architecture** (Controller → Service → Repository → Database) and a fixed set of cross-cutting contracts that are reused unchanged across the whole lab — without pulling in any technology-specific concern (no Kafka, Redis, RabbitMQ, Kubernetes, OAuth2, OpenSearch, or AWS). Those belong to their own dedicated sections.
