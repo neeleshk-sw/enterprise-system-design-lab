@@ -1,0 +1,35 @@
+# Configuration for rest-api-best-practices. Base defaults target localhost; docker
+# overrides live in application-docker.yml. Schema is owned by Flyway; Hibernate validates.
+spring:
+  application:
+    name: rest-api-best-practices
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/restapi}
+    username: ${DB_USERNAME:restapi}
+    password: ${DB_PASSWORD:restapi}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        type:
+          preferred_instant_jdbc_type: TIMESTAMP
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

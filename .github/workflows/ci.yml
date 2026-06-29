@@ -24,6 +24,7 @@ jobs:
           - 01-foundation/layered-architecture
           - 01-foundation/clean-architecture
           - 01-foundation/multi-module
+          - 01-foundation/rest-api-best-practices
     steps:
       - name: Checkout
         uses: actions/checkout@v4

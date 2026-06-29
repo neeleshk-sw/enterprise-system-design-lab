@@ -1,0 +1,6 @@
+# Active inside docker-compose (SPRING_PROFILES_ACTIVE=docker).
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://postgres:5432/restapi}
+    username: ${DB_USERNAME:restapi}
+    password: ${DB_PASSWORD:restapi}
